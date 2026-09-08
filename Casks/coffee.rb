@@ -5,28 +5,35 @@
 # brew uninstall coffee` first):
 #   brew install --cask Jleagle/coffee/coffee
 cask "coffee" do
-  version "0.0.2"
-  sha256 "a715374a6e50821811319c9c10e67f8c219624cb4aa152f6dab05bf9884366ae"
+  version "0.0.3"
+  sha256 "1ee3cf7940e313d7a72221b726fdf8db3750c5de19a37e5f65484084f7b27534"
 
-  url "https://github.com/Jleagle/coffee/releases/download/v0.0.2/coffee-v0.0.2-macos-universal.tar.gz"
+  url "https://github.com/Jleagle/coffee/releases/download/v0.0.3/coffee-v0.0.3-macos-universal.tar.gz"
   name "Coffee"
   desc "Coffee shop CLI and macOS menu bar app"
   homepage "https://github.com/Jleagle/coffee"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Coffee.app"
   binary "coffee"
 
+  # Quit the running app before an upgrade/uninstall replaces it.
+  uninstall quit: "com.jleagle.coffee"
+
   # The app is ad-hoc signed, not notarized, so Gatekeeper would block
   # the quarantined download on first launch — strip the attribute
-  # from the installed app and the staged CLI binary instead.
+  # from the installed app and the staged CLI binary instead. Then
+  # (re)launch, so an upgrade restarts the app.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Coffee.app"],
                    must_succeed: false
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", staged_path.to_s],
+                   must_succeed: false
+    system_command "/usr/bin/open",
+                   args: ["-a", "#{appdir}/Coffee.app"],
                    must_succeed: false
   end
 end
