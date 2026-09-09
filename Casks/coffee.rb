@@ -5,10 +5,10 @@
 # brew uninstall coffee` first):
 #   brew install --cask Jleagle/coffee/coffee
 cask "coffee" do
-  version "0.0.3"
-  sha256 "1ee3cf7940e313d7a72221b726fdf8db3750c5de19a37e5f65484084f7b27534"
+  version "0.0.4"
+  sha256 "61e2a2b6c84cfb29d9d090fefe733acfd7c5e8094152bfb17eef86e24f6e9a94"
 
-  url "https://github.com/Jleagle/coffee/releases/download/v0.0.3/coffee-v0.0.3-macos-universal.tar.gz"
+  url "https://github.com/Jleagle/coffee/releases/download/v0.0.4/coffee-v0.0.4-macos-universal.tar.gz"
   name "Coffee"
   desc "Coffee shop CLI and macOS menu bar app"
   homepage "https://github.com/Jleagle/coffee"
