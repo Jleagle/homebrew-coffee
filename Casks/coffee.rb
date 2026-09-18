@@ -20,10 +20,10 @@ cask "coffee" do
     end
   end
 
-  version "0.0.6"
+  version "0.0.7"
 
   on_macos do
-    sha256 "9fadeb2bb46feeda18b9fb1e5b578077f8572d5c3a9b70f58db98486a89df332"
+    sha256 "f59a50c302db5942576ef88fa9a64ff805b2e97c757a8fdd054f58ac74c9787c"
     url "https://github.com/Jleagle/coffee/releases/download/v#{version}/coffee_#{version}_darwin_all.tar.gz"
   end
 
