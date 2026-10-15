@@ -3,7 +3,7 @@
 Homebrew tap for [Jleagle/coffee](https://github.com/Jleagle/coffee).
 
 ```
-brew install Jleagle/coffee/coffee
+brew install --cask Jleagle/coffee/coffee
 ```
 
-The formula is updated automatically by the release workflow in Jleagle/coffee.
+The cask is updated automatically by the release workflow in Jleagle/coffee.
